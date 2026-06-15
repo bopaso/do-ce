@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DO·CE — Transformando Líderes, Impulsando Organizaciones</title>
+<meta name="description" content="DO-CE es una consultora boutique especializada en Gestión de Personas, Liderazgo, Coaching Ejecutivo, Coaching de Equipos y Transformación Organizacional en Santiago de Chile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --off:#FAF9F8;
+    --charcoal:#414141;
+    --ink:#1C1C1C;
+    --orange:#F26430;
+    --orange-soft:#FDE7DE;
+    --red:#E63946;
+    --gray:#888888;
+    --line:#E8E5E2;
+    --max:1240px;
+    --gap:clamp(1.5rem, 4vw, 4rem);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Montserrat', sans-serif;
+    color:var(--charcoal);
+    background:var(--white);
+    line-height:1.7;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img{max-width:100%;display:block;}
+
+  a{color:inherit;text-decoration:none;}
+
+  .container{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 clamp(1.5rem, 5vw, 3rem);
+  }
+
+  /* ===== Typography ===== */
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    gap:.65rem;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--orange);
+    margin-bottom:1.4rem;
+  }
+  .eyebrow .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--orange);
+    flex-shrink:0;
+  }
+
+  h1,h2,h3,h4{
+    font-weight:800;
+    letter-spacing:-.02em;
+    color:var(--ink);
+    line-height:1.08;
+  }
+
+  h2{
+    font-size:clamp(2rem, 4.2vw, 3.1rem);
+    margin-bottom:1.2rem;
+  }
+
+  h3{
+    font-size:1.3rem;
+    margin-bottom:.6rem;
+  }
+
+  p{color:var(--charcoal);}
+
+  .lede{
+    font-size:clamp(1.05rem, 1.6vw, 1.3rem);
+    color:var(--gray);
+    font-weight:400;
+    max-width:46ch;
+  }
+
+  .section-head{
+    max-width:680px;
+    margin-bottom:clamp(2.5rem, 5vw, 4.5rem);
+  }
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head.center .eyebrow{justify-content:center;}
+
+  section{padding:clamp(4.5rem, 9vw, 8rem) 0;}
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.6rem;
+    padding:1rem 2.1rem;
+    font-family:inherit;
+    font-size:.92rem;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    border-radius:100px;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--orange);
+    color:var(--white);
+    box-shadow:0 8px 24px -10px rgba(242,100,48,.65);
+  }
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 28px -10px rgba(242,100,48,.75);
+    background:var(--red);
+  }
+  .btn-outline{
+    background:transparent;
+    color:var(--ink);
+    border-color:var(--line);
+  }
+  .btn-outline:hover{
+    border-color:var(--ink);
+    transform:translateY(-3px);
+  }
+  .btn-light{
+    background:var(--white);
+    color:var(--ink);
+  }
+  .btn-light:hover{
+    background:var(--orange);
+    color:var(--white);
+    transform:translateY(-3px);
+  }
+  .btn:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
+
+  /* ===== Header / Nav ===== */
+  .site-header{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:1000;
+    padding:1.4rem 0;
+    transition:padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .site-header.scrolled{
+    padding:.85rem 0;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(14px);
+    box-shadow:0 1px 0 var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    font-size:1.4rem;
+    font-weight:800;
+    letter-spacing:.06em;
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    color:var(--ink);
+  }
+  .logo .dot{
+    width:9px;height:9px;border-radius:50%;
+    background:var(--orange);
+    display:inline-block;
+    animation:pulse 3.2s ease-in-out infinite;
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:clamp(1.4rem, 2.5vw, 2.6rem);
+  }
+  .nav-links a:not(.btn){
+    font-size:.86rem;
+    font-weight:600;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--charcoal);
+    position:relative;
+    padding:.3rem 0;
+    transition:color .3s;
+  }
+  .nav-links a:not(.btn)::after{
+    content:'';
+    position:absolute;left:0;bottom:-2px;
+    width:0;height:2px;
+    background:var(--orange);
+    transition:width .35s var(--ease);
+  }
+  .nav-links a:not(.btn):hover{color:var(--ink);}
+  .nav-links a:not(.btn):hover::after{width:100%;}
+
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;border:none;cursor:pointer;
+    padding:.4rem;
+    z-index:1001;
+  }
+  .nav-toggle span{
+    width:24px;height:2px;background:var(--ink);
+    transition:transform .3s var(--ease), opacity .3s var(--ease);
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:7rem;
+    overflow:hidden;
+  }
+  .hero-orb{
+    position:absolute;
+    top:-18%;right:-12%;
+    width:min(60vw, 760px);
+    height:min(60vw, 760px);
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, var(--orange) 0%, rgba(242,100,48,.35) 45%, rgba(230,57,70,.12) 75%, transparent 100%);
+    filter:blur(10px);
+    opacity:.85;
+    animation:float 22s ease-in-out infinite;
+  }
+  .hero-ring{
+    position:absolute;
+    bottom:8%;left:-6%;
+    width:min(38vw, 420px);
+    height:min(38vw, 420px);
+    border:1.5px solid var(--line);
+    border-radius:50%;
+  }
+  .hero-ring::after{
+    content:'';
+    position:absolute;
+    top:50%;left:-7px;
+    width:14px;height:14px;
+    border-radius:50%;
+    background:var(--red);
+    transform:translateY(-50%);
+    animation:orbit 16s linear infinite;
+  }
+  @keyframes orbit{
+    from{ transform: rotate(0deg) translateX(0) translateY(-50%); }
+    to{ transform: rotate(360deg) translateX(0) translateY(-50%); }
+  }
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.4fr .6fr;
+    gap:var(--gap);
+    align-items:end;
+    width:100%;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6.4vw, 5.6rem);
+    text-transform:uppercase;
+    letter-spacing:-.01em;
+    margin-bottom:1.6rem;
+  }
+  .hero h1 .accent{
+    color:var(--orange);
+  }
+  .hero .lede{margin-bottom:2.4rem;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;}
+  .hero-side{
+    border-left:1.5px solid var(--line);
+    padding-left:var(--gap);
+    display:flex;
+    flex-direction:column;
+    gap:1.6rem;
+  }
+  .hero-side .stat-num{
+    font-size:clamp(2.2rem, 4vw, 3.2rem);
+    font-weight:800;
+    color:var(--ink);
+    line-height:1;
+  }
+  .hero-side .stat-num span{color:var(--orange);}
+  .hero-side .stat-label{
+    font-size:.85rem;
+    color:var(--gray);
+    margin-top:.35rem;
+    max-width:18ch;
+  }
+  .scroll-cue{
+    position:absolute;
+    bottom:2.4rem;left:clamp(1.5rem, 5vw, 3rem);
+    display:flex;align-items:center;gap:.8rem;
+    font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gray);
+    z-index:2;
+  }
+  .scroll-cue .line{width:1px;height:46px;background:var(--line);position:relative;overflow:hidden;}
+  .scroll-cue .line::after{
+    content:'';position:absolute;top:0;left:0;width:100%;height:40%;
+    background:var(--orange);
+    animation:scrollline 2.6s ease-in-out infinite;
+  }
+  @keyframes scrollline{
+    0%{transform:translateY(-100%);}
+    60%{transform:translateY(160%);}
+    100%{transform:translateY(160%);}
+  }
+
+  /* ===== Quiénes somos ===== */
+  .about{background:var(--white);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:var(--gap);
+    align-items:center;
+  }
+  .about-text p{margin-bottom:1.2rem;}
+  .about-pillars{
+    margin-top:2.2rem;
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+  }
+  .about-pillar{
+    display:flex;
+    align-items:flex-start;
+    gap:.85rem;
+    font-size:.95rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .about-pillar .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--red);
+    margin-top:.55rem;
+    flex-shrink:0;
+  }
+  .about-visual{
+    position:relative;
+    aspect-ratio:1/1;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .about-visual svg{width:100%;height:100%;}
+
+  /* ===== Services ===== */
+  .services{background:var(--off);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.4rem;
+  }
+  .service-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:2.2rem 1.8rem;
+    display:flex;
+    flex-direction:column;
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+  }
+  .service-card:hover{
+    transform:translateY(-8px);
+    border-color:transparent;
+    box-shadow:0 24px 48px -24px rgba(65,65,65,.28);
+  }
+  .service-icon{
+    width:52px;height:52px;
+    border-radius:14px;
+    background:var(--orange-soft);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:1.4rem;
+    transition:background .4s var(--ease);
+  }
+  .service-card:hover .service-icon{background:var(--orange);}
+  .service-card:hover .service-icon svg{stroke:var(--white);}
+  .service-icon svg{width:26px;height:26px;stroke:var(--orange);transition:stroke .4s var(--ease);}
+  .service-card h3{font-size:1.15rem;}
+  .service-card ul{
+    list-style:none;
+    margin-top:1rem;
+    display:flex;
+    flex-direction:column;
+    gap:.55rem;
+  }
+  .service-card li{
+    font-size:.88rem;
+    color:var(--gray);
+    padding-left:1.1rem;
+    position:relative;
+  }
+  .service-card li::before{
+    content:'';
+    position:absolute;left:0;top:.55em;
+    width:5px;height:5px;border-radius:50%;
+    background:var(--orange);
+  }
+
+  /* ===== Methodology ===== */
+  .method{background:var(--white);}
+  .method-track{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:var(--gap);
+  }
+  .method-track::before{
+    content:'';
+    position:absolute;
+    top:28px;left:0;right:0;
+    height:1px;
+    background:var(--line);
+  }
+  .method-track::after{
+    content:'';
+    position:absolute;
+    top:28px;left:0;
+    height:1px;
+    background:linear-gradient(90deg, var(--orange), var(--red));
+    width:0%;
+    transition:width 1.4s var(--ease);
+  }
+  .method-track.in-view::after{width:100%;}
+  .method-step{position:relative;padding-top:4.2rem;}
+  .method-step .num{
+    position:absolute;
+    top:0;left:0;
+    width:58px;height:58px;
+    border-radius:50%;
+    background:var(--white);
+    border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;
+    font-size:1rem;
+    color:var(--ink);
+    transition:border-color .4s var(--ease), color .4s var(--ease), background .4s var(--ease);
+  }
+  .method-track.in-view .method-step .num{
+    border-color:var(--orange);
+    background:var(--ink);
+    color:var(--white);
+  }
+  .method-step h3{margin-top:.4rem;}
+  .method-step p{font-size:.92rem;color:var(--gray);}
+
+  /* ===== Diferenciadores ===== */
+  .why{
+    background:var(--ink);
+    color:var(--white);
+  }
+  .why .section-head h2, .why .section-head p{color:var(--white);}
+  .why .lede{color:#B9B6B3;}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .why-item{
+    background:var(--ink);
+    padding:2.2rem;
+    display:flex;
+    gap:1rem;
+    align-items:flex-start;
+  }
+  .why-item .check{
+    flex-shrink:0;
+    width:30px;height:30px;
+    border-radius:50%;
+    background:var(--orange);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .why-item .check svg{width:14px;height:14px;stroke:var(--white);}
+  .why-item p{color:#E7E5E3;font-size:.96rem;font-weight:500;line-height:1.5;}
+
+  /* ===== Team ===== */
+  .team{background:var(--white);}
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:var(--gap);
+  }
+  .team-card{
+    background:var(--off);
+    border-radius:20px;
+    padding:clamp(2rem, 4vw, 3rem);
+    display:flex;
+    flex-direction:column;
+  }
+  .team-avatar{
+    width:84px;height:84px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--orange), var(--red));
+    color:var(--white);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.7rem;font-weight:800;
+    margin-bottom:1.6rem;
+    letter-spacing:.04em;
+  }
+  .team-card h3{font-size:1.35rem;margin-bottom:.2rem;}
+  .team-role{
+    font-size:.84rem;
+    color:var(--orange);
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    margin-bottom:1.1rem;
+  }
+  .team-card p{font-size:.94rem;color:var(--gray);}
+  .team-card .btn{margin-top:1.6rem;align-self:flex-start;}
+
+  /* ===== CTA ===== */
+  .cta{
+    position:relative;
+    background:var(--ink);
+    color:var(--white);
+    text-align:center;
+    overflow:hidden;
+  }
+  .cta-orb{
+    position:absolute;
+    bottom:-30%;left:50%;
+    transform:translateX(-50%);
+    width:min(80vw, 900px);
+    height:min(80vw, 900px);
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(242,100,48,.35), transparent 70%);
+    filter:blur(20px);
+  }
+  .cta-inner{position:relative;z-index:2;max-width:780px;margin:0 auto;}
+  .cta h2{color:var(--white);}
+  .cta .lede{color:#C9C6C3;margin:0 auto 2.2rem;}
+
+  /* ===== Contact ===== */
+  .contact{background:var(--off);}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:var(--gap);
+  }
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1rem;
+  }
+  .form-row.full, .field.full{grid-column:1/-1;}
+  .field{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;}
+  .field label{
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--charcoal);
+  }
+  .field input, .field textarea{
+    font-family:inherit;
+    font-size:.96rem;
+    padding:.85rem 1rem;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    background:var(--white);
+    color:var(--ink);
+    resize:vertical;
+    transition:border-color .3s, box-shadow .3s;
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none;
+    border-color:var(--orange);
+    box-shadow:0 0 0 4px var(--orange-soft);
+  }
+  .contact-form .btn{margin-top:.6rem;width:100%;}
+
+  .contact-info{
+    background:var(--ink);
+    color:var(--white);
+    border-radius:20px;
+    padding:clamp(2rem, 4vw, 3rem);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .contact-info h3{color:var(--white);}
+  .contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:1.4rem;
+    margin-top:2rem;
+  }
+  .contact-list a, .contact-list .item{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    font-size:.95rem;
+    font-weight:600;
+    color:var(--white);
+    transition:color .3s;
+  }
+  .contact-list a:hover{color:var(--orange);}
+  .contact-list .icon{
+    width:42px;height:42px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,.2);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .contact-list .icon svg{width:18px;height:18px;stroke:var(--white);}
+  .contact-info .small{font-size:.82rem;color:#B9B6B3;margin-top:2rem;line-height:1.6;}
+
+  /* ===== Footer ===== */
+  .site-footer{
+    background:var(--ink);
+    color:#B9B6B3;
+    padding:3rem 0 2rem;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+  .footer-top{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .footer-top .logo{color:var(--white);}
+  .footer-links{display:flex;gap:2.4rem;flex-wrap:wrap;}
+  .footer-links a{font-size:.86rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;transition:color .3s;}
+  .footer-links a:hover{color:var(--orange);}
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:1rem;
+    padding-top:1.6rem;
+    font-size:.8rem;
+  }
+  .footer-bottom .socials{display:flex;gap:.8rem;}
+  .footer-bottom .socials a{
+    width:38px;height:38px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,.15);
+    display:flex;align-items:center;justify-content:center;
+    transition:border-color .3s, background .3s;
+  }
+  .footer-bottom .socials a:hover{background:var(--orange);border-color:var(--orange);}
+  .footer-bottom .socials svg{width:16px;height:16px;stroke:var(--white);}
+
+  /* ===== Reveal animation ===== */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .9s var(--ease), transform .9s var(--ease);
+  }
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .reveal-stagger.is-visible > *{opacity:1;transform:translateY(0);}
+  .reveal-stagger > *{
+    opacity:0;transform:translateY(24px);
+    transition:opacity .8s var(--ease), transform .8s var(--ease);
+  }
+  .reveal-stagger > *:nth-child(1){transition-delay:.05s;}
+  .reveal-stagger > *:nth-child(2){transition-delay:.15s;}
+  .reveal-stagger > *:nth-child(3){transition-delay:.25s;}
+  .reveal-stagger > *:nth-child(4){transition-delay:.35s;}
+  .reveal-stagger > *:nth-child(5){transition-delay:.45s;}
+  .reveal-stagger > *:nth-child(6){transition-delay:.55s;}
+
+  @keyframes pulse{
+    0%, 100%{box-shadow:0 0 0 0 rgba(242,100,48,.45);}
+    50%{box-shadow:0 0 0 6px rgba(242,100,48,0);}
+  }
+  @keyframes float{
+    0%, 100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(-3%, 4%) scale(1.05);}
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width:1024px){
+    .service-grid{grid-template-columns:repeat(2, 1fr);}
+    .why-grid{grid-template-columns:repeat(2, 1fr);}
+    .method-track{grid-template-columns:repeat(2, 1fr);row-gap:3rem;}
+    .method-track::before, .method-track::after{display:none;}
+  }
+
+  @media (max-width:860px){
+    .nav-links{
+      position:fixed;
+      inset:0;
+      background:var(--white);
+      flex-direction:column;
+      justify-content:center;
+      gap:2.2rem;
+      transform:translateX(100%);
+      transition:transform .45s var(--ease);
+    }
+    .nav-links.open{transform:translateX(0);}
+    .nav-links a:not(.btn){font-size:1.1rem;}
+    .nav-toggle{display:flex;}
+    .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav-toggle.open span:nth-child(2){opacity:0;}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-side{
+      border-left:none;border-top:1.5px solid var(--line);
+      padding-left:0;padding-top:1.8rem;
+      flex-direction:row;flex-wrap:wrap;gap:2rem;
+    }
+    .about-grid{grid-template-columns:1fr;}
+    .about-visual{order:-1;max-width:280px;margin:0 auto 1rem;}
+    .service-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="#top" class="logo">DO<span class="dot" aria-hidden="true"></span>CE</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#contacto" class="btn btn-primary">Conversemos</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="hero-ring" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow"><span class="dot"></span>Consultora boutique en gestión de personas</p>
+      <h1>Transformando líderes, impulsando <span class="accent">organizaciones</span></h1>
+      <p class="lede">Ayudamos a personas, equipos y organizaciones a desarrollar su potencial a través de soluciones estratégicas de gestión de personas, liderazgo y coaching.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">Conversemos</a>
+        <a href="#servicios" class="btn btn-outline">Conoce nuestros servicios</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div>
+        <div class="stat-num">20<span>+</span></div>
+        <p class="stat-label">Años de experiencia ejecutiva en gestión de personas</p>
+      </div>
+      <div>
+        <div class="stat-num"><span>5</span> áreas</div>
+        <p class="stat-label">De especialización, de talento a transformación cultural</p>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span class="line"></span>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===================== QUIÉNES SOMOS ===================== -->
+<section class="about" id="nosotros">
+  <div class="container about-grid">
+    <div class="about-text reveal">
+      <p class="eyebrow"><span class="dot"></span>Quiénes somos</p>
+      <h2>Somos DO·CE</h2>
+      <p>DO-CE nace con la convicción de que las organizaciones crecen cuando sus líderes y equipos desarrollan nuevas capacidades para enfrentar los desafíos del presente y del futuro.</p>
+      <p>Combinamos más de 20 años de experiencia ejecutiva en gestión de personas con metodologías de coaching, desarrollo organizacional y liderazgo para generar cambios sostenibles y resultados concretos.</p>
+      <div class="about-pillars">
+        <div class="about-pillar"><span class="dot"></span>Mirada estratégica con foco humano</div>
+        <div class="about-pillar"><span class="dot"></span>Metodologías propias y certificaciones internacionales</div>
+        <div class="about-pillar"><span class="dot"></span>Acompañamiento cercano, práctico y a la medida</div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="160" cy="170" r="120" stroke="#E8E5E2" stroke-width="1.5"/>
+        <circle cx="260" cy="240" r="80" stroke="#F26430" stroke-width="2"/>
+        <circle cx="150" cy="280" r="50" stroke="#E63946" stroke-width="2"/>
+        <circle cx="230" cy="120" r="6" fill="#F26430"/>
+        <circle cx="100" cy="120" r="6" fill="#414141"/>
+        <circle cx="300" cy="300" r="6" fill="#E63946"/>
+        <line x1="230" y1="120" x2="260" y2="240" stroke="#E8E5E2" stroke-width="1.5"/>
+        <line x1="100" y1="120" x2="150" y2="280" stroke="#E8E5E2" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICIOS ===================== -->
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow"><span class="dot"></span>Lo que hacemos</p>
+      <h2>Nuestros servicios</h2>
+      <p class="lede" style="margin:0 auto;">Soluciones integrales y a la medida para acompañar a personas, equipos y organizaciones en su proceso de transformación.</p>
+    </div>
+    <div class="service-grid reveal-stagger reveal">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16 8 13.5 13.5 8 16 10.5 10.5 16 8"/></svg>
+        </div>
+        <h3>Coaching Ejecutivo Individual</h3>
+        <ul>
+          <li>Desarrollo de habilidades y competencias específicas para el rol</li>
+          <li>Onboarding a un nuevo rol</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><line x1="8.6" y1="7.6" x2="10.4" y2="16"/><line x1="15.4" y1="7.6" x2="13.6" y2="16"/><line x1="9" y1="6" x2="15" y2="6"/></svg>
+        </div>
+        <h3>Coaching de Equipos</h3>
+        <ul>
+          <li>Desarrollo de equipos de alto desempeño</li>
+          <li>Alineamiento</li>
+          <li>Acompañamiento a equipos en formación y/o integración</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-9"/><path d="M14 6h6v6"/></svg>
+        </div>
+        <h3>Programas de Liderazgo</h3>
+        <ul>
+          <li>Desarrollo de habilidades y competencias de liderazgo</li>
+          <li>Gestión del Rol</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19c2-4 6-6 8-6s6 2 8 6"/><circle cx="8" cy="7" r="3"/><circle cx="16" cy="7" r="3"/></svg>
+        </div>
+        <h3>Programa Mentoring</h3>
+        <ul>
+          <li>Desarrollo de programas de mentorías para líderes y profesionales</li>
+          <li>Desarrollo y formación de competencias para mentor-coach</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+        </div>
+        <h3>Talent Management</h3>
+        <ul>
+          <li>Identificación de talento</li>
+          <li>Sucesión</li>
+          <li>Nine Box</li>
+          <li>Assessment</li>
+          <li>Planes de desarrollo</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== METODOLOGÍA ===================== -->
+<section class="method" id="metodologia">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="dot"></span>Cómo trabajamos</p>
+      <h2>Nuestra metodología</h2>
+      <p class="lede">Un proceso claro y flexible que combina rigor analítico con acompañamiento humano, paso a paso.</p>
+    </div>
+    <div class="method-track" id="methodTrack">
+      <div class="method-step">
+        <div class="num">01</div>
+        <h3>Diagnóstico</h3>
+        <p>Comprendemos la realidad y los desafíos de la organización.</p>
+      </div>
+      <div class="method-step">
+        <div class="num">02</div>
+        <h3>Diseño</h3>
+        <p>Construimos soluciones adaptadas a cada cliente.</p>
+      </div>
+      <div class="method-step">
+        <div class="num">03</div>
+        <h3>Desarrollo</h3>
+        <p>Implementamos metodologías prácticas y experienciales.</p>
+      </div>
+      <div class="method-step">
+        <div class="num">04</div>
+        <h3>Impacto</h3>
+        <p>Medimos resultados y sostenibilidad del cambio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DIFERENCIADORES ===================== -->
+<section class="why">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow"><span class="dot"></span>Nuestros diferenciadores</p>
+      <h2>¿Por qué DO·CE?</h2>
+    </div>
+    <div class="why-grid reveal-stagger reveal">
+      <div class="why-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <p>Más de 20 años de experiencia ejecutiva</p>
+      </div>
+      <div class="why-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <p>Visión estratégica y de negocio</p>
+      </div>
+      <div class="why-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <p>Certificaciones internacionales en Coaching</p>
+      </div>
+      <div class="why-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <p>Experiencia en múltiples industrias</p>
+      </div>
+      <div class="why-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <p>Soluciones personalizadas</p>
+      </div>
+      <div class="why-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <p>Acompañamiento cercano y práctico</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== EQUIPO ===================== -->
+<section class="team" id="equipo">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="dot"></span>Nuestro equipo</p>
+      <h2>Quiénes te acompañan</h2>
+      <p class="lede">Un equipo de especialistas con trayectoria ejecutiva y certificaciones internacionales en coaching y desarrollo organizacional.</p>
+    </div>
+    <div class="team-grid reveal-stagger reveal">
+      <div class="team-card">
+        <div class="team-avatar">BO</div>
+        <h3>Bárbara Opaso</h3>
+        <p class="team-role">Fundadora · Gestión de Personas &amp; Coaching Ejecutivo</p>
+        <p>Psicóloga, MBA, especialista en Gestión de Personas, Desarrollo Organizacional y Coaching Ejecutivo. Más de 20 años liderando áreas de Recursos Humanos en empresas nacionales e internacionales de diversos sectores, acompañando procesos de transformación organizacional, liderazgo y desarrollo de talento.</p>
+        <a href="https://www.linkedin.com/in/barbaraopaso/" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;stroke:currentColor;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Ver perfil en LinkedIn
+        </a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">CC</div>
+        <h3>Carolina Correa</h3>
+        <p class="team-role">Mastercoach Ontológico Senior</p>
+        <p>Magíster en Dirección de Personas y Organizaciones UAI, Diplomado en Recursos Humanos de la Universidad de Chile, Certificación en Coaching Ontológico Newfield Network y Coaching Avanzado Newfield Consulting, Certificación en Coaching de Equipos y en Coaching de Equipos en Empresas Familiares de la Escuela Europea de Coaching, y certificación en metodología Points of You. Consultora y Coach Ejecutivo Empresarial, facilitadora de programas de liderazgo para ejecutivos y nuevos talentos, coach de equipos directivos y formadora de coaches ontológicos en la Escuela de Coaching Ontológico de Rafael Echeverría, Newfield Consulting.</p>
+        <a href="https://www.linkedin.com/in/carolina-correa-fenick-30b31025/" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;stroke:currentColor;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Ver perfil en LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta">
+  <div class="cta-orb" aria-hidden="true"></div>
+  <div class="container cta-inner reveal">
+    <h2>¿Listo para desarrollar el potencial de tu organización?</h2>
+    <p class="lede">Conversemos sobre los desafíos de tu equipo y diseñemos juntos un camino de desarrollo a la medida.</p>
+    <a href="#contacto" class="btn btn-primary">Agendar reunión</a>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="dot"></span>Conversemos</p>
+      <h2>Contáctanos</h2>
+      <p class="lede">Cuéntanos sobre tu organización y los desafíos que enfrentas. Te responderemos a la brevedad.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="field">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="cargo">Cargo</label>
+            <input type="text" id="cargo" name="cargo">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field full">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono">
+          </div>
+        </div>
+        <div class="field full">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+      </form>
+
+      <div class="contact-info">
+        <div>
+          <h3>Hablemos</h3>
+          <p style="color:#B9B6B3;">Estamos en Santiago, Chile, y trabajamos con organizaciones en toda Latinoamérica.</p>
+          <div class="contact-list">
+            <div class="item">
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              Santiago, Chile
+            </div>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener">
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+              LinkedIn
+            </a>
+            <a href="mailto:contacto@do-ce.com">
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></span>
+              contacto@do-ce.com
+            </a>
+            <a href="https://wa.me/56900000000" target="_blank" rel="noopener">
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 1 1-4-7.2L21 3l-1.4 4.1A8.5 8.5 0 0 1 21 11.5z"/><path d="M8 10.5c.5 2 2.5 4 4.5 4.5"/></svg></span>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+        <p class="small">Al enviar este formulario aceptas que DO-CE te contacte para responder tu consulta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="#top" class="logo">DO<span class="dot" aria-hidden="true"></span>CE</a>
+        <p style="margin-top:.8rem;max-width:32ch;font-size:.88rem;">Transformando líderes, impulsando organizaciones.</p>
+      </div>
+      <nav class="footer-links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#metodologia">Metodología</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#" aria-disabled="true">Blog (próximamente)</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 DO-CE. Todos los derechos reservados.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://wa.me/56900000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 1 1-4-7.2L21 3l-1.4 4.1A8.5 8.5 0 0 1 21 11.5z"/><path d="M8 10.5c.5 2 2.5 4 4.5 4.5"/></svg>
+        </a>
+        <a href="mailto:contacto@do-ce.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', false);
+  }));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Methodology line draw
+  const methodTrack = document.getElementById('methodTrack');
+  const methodObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        methodObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  methodObserver.observe(methodTrack);
+
+  // Contact form -> mailto fallback
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const body = encodeURIComponent(
+      `Nombre: ${data.get('nombre')}\nEmpresa: ${data.get('empresa')}\nCargo: ${data.get('cargo')}\nEmail: ${data.get('email')}\nTeléfono: ${data.get('telefono')}\n\nMensaje:\n${data.get('mensaje')}`
+    );
+    window.location.href = `mailto:contacto@do-ce.com?subject=${encodeURIComponent('Nuevo contacto desde sitio web DO-CE')}&body=${body}`;
+  });
+</script>
+</body>
+</html>
